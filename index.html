@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello world</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+</head>
+
+<body>
+    <h1>Chat</h1>
+    <div id="chatBox" style="display: none;">
+        <div class="message" >
+            <ul style="max-height: 100%;" id="bMessage">
+                
+            </ul>
+        </div>
+        <form id="myForm">
+            <input type="text" id="message" placeholder="Broadcast message">
+            <button type="button" id="send">SEND</button>
+        </form>
+    </div>
+    <form id="register">
+        <div>
+            <label>Enter Name :</label>
+            <input type="text" id="name" placeholder="Name">
+        </div>
+        <br />
+        <div>
+            <label>Select Region :</label>
+            <select id="region">
+                <option value="india" selected="selected">India</option>
+                <option value="kerala">Kerala</option>
+                <option value="international">International</option>
+            </select>
+        </div>
+        <button type="button" id="bButton">ENTER</button>
+    </form>
+    <br/>
+    <button id="rButton">ENTER TO RANDOM CHAT</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.2/socket.io.js"></script>
+<script src="./main.js"></script>
+
+</html>
