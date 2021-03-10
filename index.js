@@ -63,5 +63,8 @@ app.get('/broadcast', (req, res) => {
     console.log(req.body)
 })
 
+passport.serializeUser((user,done)=>{
+    done(null,user._id)
+})
 
 http.listen(3000, console.log('Server running on 3000'))
