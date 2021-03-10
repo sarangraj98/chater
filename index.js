@@ -8,6 +8,7 @@ const session = require('express-session')
 const passport = require('passport')
 
 var db = []
+app.use(express.static(__dirname));
 app.set('view engine', 'pug');
 app.set('views', './pages')
 app.use(session({
@@ -15,8 +16,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
-app.use(passport.initialize());
-app.use(passport.session())
+
 app.get('/', (req, res) => {
     res.sendFile('./index.html');
 });
@@ -47,14 +47,22 @@ io.on('connection', function (socket) {
     })
     socket.on('broadcastregister', function (data) {
         //socket.broadcast.emit('message',{msg:data.msg})
-        console.log(data)
-        let datas = {}
-        datas.name = data.name
-        datas.region = data.region
-        datas.id = socket.id
-        db.push(datas)
-        socket.join(data.region)
-        console.log(db)
+        const check = db.find((item)=>item.name==data.name)
+        if (check) {
+            socket.emit('user_exist',{msg:'Please use another name !'})
+        } else {
+            let datas = {}
+            datas.name = data.name
+            datas.region = data.region
+            datas.id = socket.id
+            db.push(datas)
+            socket.join(data.region)
+            console.log('no')
+        }
+        
+
+
+
 
     })
 });

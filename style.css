@@ -16,3 +16,14 @@ ul >li{
     background: rgb(201, 201, 198);
     padding: 6px 13px 6px 10px;
 }
+
+.myOwn{
+    background-color: black;
+    color: white;
+    text-align: right;
+}
+
+.kickout{
+    color: red;
+    text-align: right;
+}
