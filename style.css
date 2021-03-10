@@ -27,3 +27,8 @@ ul >li{
     color: red;
     text-align: right;
 }
+
+.alert{
+    background-color: red;
+    color: white;
+}
